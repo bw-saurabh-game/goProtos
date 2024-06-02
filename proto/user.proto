@@ -13,6 +13,19 @@ message UserDetails{
   string userName = 2;
 }
 
+message UserInfo{
+  int32 id =1;
+  string firstName =2;
+  string lastName =3;
+  string email =4;
+  string phoneNumber =5;
+}
+
+message ResponseStatus{
+  string response = 1;
+}
+
 service UserService{
   rpc GetUserInfo(UserId) returns (UserDetails);
+  rpc AddUserDetails(UserInfo) returns(ResponseStatus);
 }
