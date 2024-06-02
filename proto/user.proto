@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "github.com/bw-saurabh-game/goProtos/gen/go/user";
+
+message UserId{
+  string id = 1;
+}
+
+message UserDetails{
+  string name = 1;
+  string userName = 2;
+}
+
+service UserService{
+  rpc GetUserInfo(UserId) returns (UserDetails);
+}
