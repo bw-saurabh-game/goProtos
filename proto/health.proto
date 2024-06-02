@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "github.com/bw-saurabh-game/goProtos/gen/go/health";
+import "google/protobuf/empty.proto";
+package proto;
+
+
+message HealthCheckRequest {
+  string service = 1;
+}
+
+enum ServingStatus {
+  UNKNOWN = 0;
+  SERVING = 1;
+  NOT_SERVING = 2;
+}
+message HealthCheckResponse {
+  ServingStatus status = 1;
+}
+
+service Health {
+  rpc Check(google.protobuf.Empty) returns (HealthCheckResponse);
+}
